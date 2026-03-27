@@ -1,0 +1,104 @@
+/* styles.css */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #2b5876, #4e4376);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.stopwatch-container {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 3rem;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    width: 90%;
+    max-width: 500px;
+}
+
+h2 {
+    color: #a8d0e6;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 1.5rem;
+}
+
+.display {
+    font-size: 4rem;
+    font-weight: bold;
+    margin-bottom: 2rem;
+    /* This stops the numbers from jumping around as they change */
+    font-variant-numeric: tabular-nums; 
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 2rem;
+}
+
+.btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s;
+    color: white;
+}
+
+.btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Button Colors */
+.start { background-color: #4CAF50; }
+.start:hover:not(:disabled) { background-color: #45a049; }
+
+.pause { background-color: #ff9800; }
+.pause:hover:not(:disabled) { background-color: #e68a00; }
+
+.lap { background-color: #2196F3; }
+.lap:hover:not(:disabled) { background-color: #0b7dda; }
+
+.reset { background-color: #f44336; }
+.reset:hover:not(:disabled) { background-color: #da190b; }
+
+/* Laps Section */
+.laps-container {
+    max-height: 200px;
+    overflow-y: auto;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    padding-top: 1rem;
+}
+
+#lapsList {
+    list-style: none;
+}
+
+#lapsList li {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 1.1rem;
+    font-variant-numeric: tabular-nums;
+}
+
+#lapsList li span:first-child {
+    color: #a8d0e6;
+}
