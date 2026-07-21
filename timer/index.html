@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pro Timer</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div class="timer-container" id="timerContainer">
+        <!-- Top Utility Bar -->
+        <div class="utility-bar">
+            <button id="pipBtn" title="Float window on top of desktop">📌 Float</button>
+            <button id="fullscreenBtn" title="Toggle Fullscreen">⛶ Full</button>
+        </div>
+
+        <h2>Timer</h2>
+
+        <!-- Circular Display -->
+        <div class="circle-box">
+            <svg class="progress-ring" width="300" height="300">
+                <circle class="progress-ring__background" stroke="rgba(255,255,255,0.1)" stroke-width="12" fill="transparent" r="130" cx="150" cy="150"/>
+                <circle id="progressCircle" class="progress-ring__circle" stroke="#00d2ff" stroke-width="12" stroke-linecap="round" fill="transparent" r="130" cx="150" cy="150"/>
+            </svg>
+            
+            <div class="display-content">
+                <!-- Editable Time Display (Now includes milliseconds space) -->
+                <div id="timeDisplay" class="time-display placeholder">00:00:00<span class="ms">.00</span></div>
+                <div id="typeHint" class="type-hint">Type numbers (HH:MM:SS)</div>
+            </div>
+        </div>
+
+        <!-- On-Screen Keypad -->
+        <div id="keypad" class="keypad">
+            <button onclick="appendDigit('1')">1</button>
+            <button onclick="appendDigit('2')">2</button>
+            <button onclick="appendDigit('3')">3</button>
+            <button onclick="appendDigit('4')">4</button>
+            <button onclick="appendDigit('5')">5</button>
+            <button onclick="appendDigit('6')">6</button>
+            <button onclick="appendDigit('7')">7</button>
+            <button onclick="appendDigit('8')">8</button>
+            <button onclick="appendDigit('9')">9</button>
+            <button onclick="clearDigits()">C</button>
+            <button onclick="appendDigit('0')">0</button>
+            <button onclick="backspaceDigit()">⌫</button>
+        </div>
+
+        <!-- Settings: Tick Interval -->
+        <div class="settings-bar">
+            <label class="tick-label">
+                <input type="checkbox" id="tickToggle">
+                Tick every
+                <input type="number" id="tickInterval" value="1" min="1" max="3600">
+                sec
+            </label>
+        </div>
+
+        <!-- Controls -->
+        <div class="controls">
+            <button id="startBtn" class="btn start">Start</button>
+            <button id="pauseBtn" class="btn pause" disabled>Pause</button>
+            <button id="resetBtn" class="btn reset">Reset</button>
+        </div>
+
+        <button id="stopAlarmBtn" class="btn stop-alarm hidden">Silence Alarm</button>
+    </div>
+
+    <!-- Hidden elements required for Sticky Picture-in-Picture mode -->
+    <canvas id="pipCanvas" width="300" height="300" style="display:none;"></canvas>
+    <video id="pipVideo" autoplay muted style="display:none;"></video>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
