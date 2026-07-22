@@ -1,0 +1,155 @@
+/* styles.css */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #141E30, #243B55);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.clock-container {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 2rem;
+    border-radius: 16px;
+    backdrop-filter: blur(15px);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    width: 90%;
+    max-width: 450px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Toolbar */
+.toolbar {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+}
+
+.toolbar button {
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: #4facfe;
+    padding: 8px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: bold;
+    transition: background 0.2s;
+}
+
+.toolbar button:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* Display Area */
+.display-area {
+    text-align: center;
+    position: relative;
+}
+
+.time-display {
+    font-size: 4.5rem;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 2px;
+    line-height: 1;
+    display: inline-block;
+}
+
+.ampm-display {
+    display: inline-block;
+    font-size: 1.5rem;
+    color: #00f2fe;
+    margin-left: 5px;
+    font-weight: bold;
+}
+
+.date-display {
+    font-size: 1.1rem;
+    color: #ccc;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+}
+
+/* Seconds Progress Bar */
+.seconds-bar-container {
+    width: 100%;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.seconds-bar {
+    height: 100%;
+    background: linear-gradient(90deg, #4facfe, #00f2fe);
+    width: 0%;
+    transition: width 0.2s linear;
+}
+
+/* Edit Panel */
+.edit-panel {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+}
+
+.edit-panel.hidden {
+    display: none;
+}
+
+.edit-panel label {
+    display: block;
+    margin-bottom: 10px;
+    color: #00f2fe;
+    font-size: 0.9rem;
+}
+
+.edit-controls {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+input[type="time"] {
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    padding: 8px;
+    border-radius: 6px;
+    font-size: 1rem;
+}
+
+input[type="time"]::-webkit-calendar-picker-indicator {
+    filter: invert(1); /* Makes the clock icon white */
+}
+
+.btn {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    color: white;
+}
+
+.btn.save { background-color: #4CAF50; }
+.btn.reset { background-color: #f44336; }
+
+.status-text {
+    font-size: 0.8rem;
+    color: #888;
+}

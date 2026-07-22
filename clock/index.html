@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sticky Clock</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div class="clock-container">
+        <!-- Top Toolbar -->
+        <div class="toolbar">
+            <button id="pipBtn" title="Pin window on top">📌 Pin</button>
+            <button id="formatBtn" title="Toggle 12/24 Hour Format">12H</button>
+            <button id="editBtn" title="Change the Clock">⚙️ Edit</button>
+        </div>
+
+        <!-- Main Clock Display -->
+        <div class="display-area">
+            <div id="timeDisplay" class="time-display">00:00:00</div>
+            <div id="ampmDisplay" class="ampm-display">AM</div>
+            <div id="dateDisplay" class="date-display">Loading date...</div>
+            
+            <!-- Visual Seconds Bar -->
+            <div class="seconds-bar-container">
+                <div id="secondsBar" class="seconds-bar"></div>
+            </div>
+        </div>
+
+        <!-- Edit Time Panel (Hidden by default) -->
+        <div id="editPanel" class="edit-panel hidden">
+            <label for="customTime">Set Custom Time:</label>
+            <div class="edit-controls">
+                <input type="time" id="customTime" step="1">
+                <button id="saveTimeBtn" class="btn save">Set</button>
+                <button id="resetTimeBtn" class="btn reset">Reset to System</button>
+            </div>
+            <p id="offsetStatus" class="status-text">Using System Time</p>
+        </div>
+    </div>
+
+    <!-- Hidden elements for Sticky/PiP Mode -->
+    <canvas id="pipCanvas" width="400" height="200" style="display:none;"></canvas>
+    <video id="pipVideo" autoplay muted style="display:none;"></video>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
